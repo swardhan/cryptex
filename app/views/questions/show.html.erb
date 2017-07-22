@@ -1,0 +1,44 @@
+<% if params[:id].to_i - 1 > current_user.level %>
+  <p>Unauthorized</p>
+
+<% else %>
+
+<br>
+
+<% if current_user.level > @question.level %>
+<p>You completed this level</p>
+<% end %>
+
+  <p id="notice"><%= notice %></p>
+
+  <p>
+    <strong>Image:</strong>
+    <img src="<%= @question.image %>" alt="<%= @question.description %>">
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @question.description %>
+  </p>
+
+  <p>
+    <strong>Answer:</strong>
+    <%= @question.answer %>
+  </p>
+
+  <p>
+    <strong>Level:</strong>
+    <%= @question.level %>
+  </p>
+
+  <% unless current_user.level >  @question.level%>
+    <%= form_tag({controller: :users, action: :answer_submit},method: :post) do %>
+      <%= text_field_tag(:answer) %>
+      <%= hidden_field_tag(:question_id, @question.id) %>
+      <%= submit_tag("Answer", disable_with: "Answering..") %>
+    <% end %>
+  <% end %>
+
+
+  <div>Number of Tries: <span class="tries"><%= current_user.answer_count %></span></div>
+  <% end %>
