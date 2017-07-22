@@ -3,6 +3,7 @@
 <table>
   <thead>
     <tr>
+      <th>Rank</th>
       <th>Username</th>
       <th>Level</th>
     </tr>
@@ -10,7 +11,9 @@
 
   <tbody>
     <% @users.each do |user| %>
+    <% #rank = @users.map(&:id).index(user.id) %>
       <tr>
+        <td><%= user.rank(user) %></td>
         <td><%= user.username %></td>
         <td><%= user.level %></td>
       </tr>
