@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @users = Users.all('level desc')
+    @users = User.all.order('level desc, submit_time desc')
   end
 
   def play
@@ -26,6 +26,7 @@ class UsersController < ApplicationController
         @level += 1
         current_user.update_attribute(:level, @level)
         current_user.update_attribute(:answer_count, @answer_count)
+        current_user.update_attribute(:submit_time, Time.now)
         unless @question == Question.last
           redirect_to url_for(action: "play")
         else

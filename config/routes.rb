@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  get '/users/play'
+  get '/play', to: "users#play"
 
   post '/users/answer_submit'
 
