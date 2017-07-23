@@ -21,20 +21,27 @@ class UsersController < ApplicationController
     answer = params[:answer]
     @answer_count = current_user.answer_count
     @level = current_user.level
+    @correct=false
       if answer == @question.answer
         @answer_count = 0
         @level += 1
         current_user.update_attribute(:level, @level)
         current_user.update_attribute(:answer_count, @answer_count)
         current_user.update_attribute(:submit_time, Time.now)
-        unless @question == Question.last
-          redirect_to url_for(action: "play")
-        else
-          redirect_to "/congratulations"
-        end
+        @correct = true
+        # unless @question == Question.last
+        #   redirect_to url_for(action: "play")
+        # else
+        #   redirect_to "/congratulations"
+        # end
       else
+        @correct = false
         @answer_count += 1
         current_user.update_attribute(:answer_count, @answer_count)
+      end
+      
+      respond_to do |format|
+        format.js {}
       end
 
   end

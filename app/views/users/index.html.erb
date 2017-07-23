@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<div>Your Rank: <%= current_user.rank(current_user) %></div>
+
 <table>
   <thead>
     <tr>
@@ -11,7 +13,6 @@
 
   <tbody>
     <% @users.each do |user| %>
-    <% #rank = @users.map(&:id).index(user.id) %>
       <tr>
         <td><%= user.rank(user) %></td>
         <td><%= user.username %></td>

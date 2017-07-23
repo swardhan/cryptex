@@ -1,1 +1,10 @@
-$('.tries').html('<%= current_user.answer_count %>');
+$('input[type="text"]').val('');
+<% if !@correct %>
+  $('.tries').html('<%= current_user.answer_count %>');
+<% elsif @correct %>
+  <% unless @question == Question.last %>
+    window.location.href = '/play';
+  <% else %>
+    window.location.href = '/congratulations';
+  <% end %>
+<% end %>

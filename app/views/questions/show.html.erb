@@ -32,10 +32,10 @@
   </p>
 
   <% unless current_user.level >  @question.level%>
-    <%= form_tag({controller: :users, action: :answer_submit},method: :post) do %>
+    <%= form_tag({controller: :users, action: :answer_submit},method: :post, remote: true) do %>
       <%= text_field_tag(:answer) %>
       <%= hidden_field_tag(:question_id, @question.id) %>
-      <%= submit_tag("Answer", disable_with: "Answering..") %>
+      <%= submit_tag "Answer", data: { disable_with: "Answering..." } %>
     <% end %>
   <% end %>
 
