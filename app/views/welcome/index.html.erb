@@ -1,3 +1,10 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
-<%= link_to "Play Game", {controller: :users, action: :play} %>
+<div class="container">
+  <h1 id="welcome">Rules: </h1>
+  <div class="rules">
+    <p class="rule">1. Google smartly.</p>
+    <p class="rule">2. Hints can be anywhere, source code or any other tool you can use to see the reponse.</p>
+    <p class="rule"></p>
+  </div>
+
+  <%= button_to "Play Game", {controller: :users, action: :play},method: :get, id: "play_btn"%>
+</div>

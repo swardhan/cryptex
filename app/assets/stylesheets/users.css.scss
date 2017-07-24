@@ -1,0 +1,44 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.rank {
+  font-family: 'Play';
+  font-size: 1.6rem;
+  margin-bottom: 25px;
+  position: relative;
+  left: -25%;
+}
+
+table {
+  font-family: 'Gabriela';
+  width: 800px;
+  position: relative;
+  top: 0;
+}
+
+th {
+  font-size: 1.4rem;
+  text-align: left;
+}
+
+td {
+  font-size: 1.2rem;
+}
+
+.table_container {
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0 10px;
+  align-items: center;
+  background-color: #ffcd94;
+  border-radius: 5px;
+  height: 87vh;
+  padding-bottom: 80px;
+  min-width: 900px;
+}
+
+.play {
+  width: 55px;
+}

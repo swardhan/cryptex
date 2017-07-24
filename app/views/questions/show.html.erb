@@ -1,44 +1,39 @@
-<% if params[:id].to_i - 1 > current_user.level %>
-  <p>Unauthorized</p>
+<div class="container">
+  <% if params[:id].to_i - 1 > current_user.level %>
+    <p>Unauthorized</p>
 
-<% else %>
+  <% else %>
 
-<br>
+  <br>
 
-<% if current_user.level > @question.level %>
-<p>You completed this level</p>
-<% end %>
+  <% if current_user.level > @question.level %>
+  <p>You completed this level</p>
+  <% end %>
 
-  <p id="notice"><%= notice %></p>
+    <p id="notice"><%= notice %></p>
 
-  <p>
-    <strong>Image:</strong>
-    <img src="<%= @question.image %>" alt="<%= @question.description %>">
-  </p>
+    <p>
+      <img src="<%= @question.image %>" alt="<%= @question.description %>">
+    </p>
 
-  <p>
-    <strong>Description:</strong>
-    <%= @question.description %>
-  </p>
+      <p id="desc">
+        <%= @question.description %>
+      </p>
 
-  <p>
-    <strong>Answer:</strong>
-    <%= @question.answer %>
-  </p>
+    <p id="level">
+      <strong>Level:</strong>
+      <%= @question.level %>
+    </p>
 
-  <p>
-    <strong>Level:</strong>
-    <%= @question.level %>
-  </p>
-
-  <% unless current_user.level >  @question.level%>
-    <%= form_tag({controller: :users, action: :answer_submit},method: :post, remote: true) do %>
-      <%= text_field_tag(:answer) %>
-      <%= hidden_field_tag(:question_id, @question.id) %>
-      <%= submit_tag "Answer", data: { disable_with: "Answering..." } %>
+    <% unless current_user.level >  @question.level%>
+      <%= form_tag({controller: :users, action: :answer_submit},method: :post, remote: true, class: "submit") do %>
+        <%= text_field_tag(:answer) %>
+        <%= hidden_field_tag(:question_id, @question.id) %>
+        <%= submit_tag "Answer", data: { disable_with: "Answering..." } %>
+      <% end %>
     <% end %>
-  <% end %>
 
 
-  <div>Number of Tries: <span class="tries"><%= current_user.answer_count %></span></div>
-  <% end %>
+    <div class="tries_outer">Number of Tries: <span class="tries"><%= current_user.answer_count %></span></div>
+    <% end %>
+</div>

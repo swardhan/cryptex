@@ -1,25 +1,25 @@
-<p id="notice"><%= notice %></p>
+<div class="table_container">
+  <div class="rank">Your Rank: <%= current_user.rank(current_user) %></div>
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Username</th>
+          <th>Level</th>
+        </tr>
+      </thead>
 
-<div>Your Rank: <%= current_user.rank(current_user) %></div>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.rank(user) %></td>
+            <td><%= user.username %></td>
+            <td><%= user.level %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<table>
-  <thead>
-    <tr>
-      <th>Rank</th>
-      <th>Username</th>
-      <th>Level</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.rank(user) %></td>
-        <td><%= user.username %></td>
-        <td><%= user.level %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+    <br>
+  </div>
+</div>

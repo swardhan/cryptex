@@ -1,0 +1,27 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#play_btn {
+  height: 50px;
+  width: 120px;
+  background-color: #82b74b !important;
+  border-radius: 5px;
+  font-family: 'Play', sans-serif;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+}
+
+#subheader {
+  text-align: left;
+}
+
+#welcome {
+  font-family: 'Alegreya', sans-serif;
+  font-size: 3rem;
+}
+
+.rule {
+  font-size: 1rem;
+  font-family: 'ALegreya';
+}

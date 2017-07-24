@@ -1,0 +1,61 @@
+// Place all the styles related to the Questions controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+img {
+  border-radius: 15px;
+}
+
+// Congratulations
+
+.line {
+  height: 4px;
+  width: 500px;
+  margin-bottom: 30px;
+  margin-top: 0px;
+}
+
+hr.line {
+  height: 30px;
+  border-style: solid;
+  border-color: #8c8b8b;
+  border-width: 1px 0 0 0;
+  border-radius: 20px;
+}
+hr.line:before {
+  display: block;
+  content: "";
+  height: 30px;
+  margin-top: -31px;
+  border-style: solid;
+  border-color: #8c8b8b;
+  border-width: 0 0 1px 0;
+  border-radius: 20px;
+}
+
+div.tries_outer {
+  font-family: 'Gabriela', sans-serif;
+  padding: 20px;
+  font-size: 1.7rem;
+}
+
+img {
+    flex: 5;
+}
+
+#desc {
+  border: 2px solid #ffad60;
+  background-color: #ffe0bd;
+  width: 50%;
+  font-size: 1.2rem;
+  flex: 1;
+}
+
+#level {
+  font-size: 1.3rem;
+  flex: 1;
+}
+
+.submit {
+  flex: 1;
+}
