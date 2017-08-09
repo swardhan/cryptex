@@ -1,5 +1,5 @@
 <div class="table_container">
-  <div class="rank">Your Rank: <%= current_user.rank(current_user) %></div>
+  <div class="rank">Your Rank: <%= current_user.rank %></div>
     <table>
       <thead>
         <tr>
@@ -12,7 +12,7 @@
       <tbody>
         <% @users.each do |user| %>
           <tr>
-            <td><%= user.rank(user) %></td>
+            <td><%= user.rank %></td>
             <td><%= user.username %></td>
             <td><%= user.level %></td>
           </tr>
